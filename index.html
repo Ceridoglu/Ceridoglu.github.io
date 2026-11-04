@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Dokuz Sudoku</title>
+<meta name="description" content="Dokuz Sudoku: 6 seviye, günün bulmacası, not modu ve ipucuyla sade bir Sudoku oyunu. Android ve iPhone için.">
+<link rel="icon" href="icon.png">
+<style>
+:root{--bg:#0E7C66;--ink:#FFFFFF;--soft:rgba(255,255,255,.78);--amber:#FFDF8A;--grid:rgba(255,255,255,.06);
+  --f:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+html,body{margin:0;min-height:100%}
+body{background:var(--bg);background-image:linear-gradient(var(--grid) 2px,transparent 2px),linear-gradient(90deg,var(--grid) 2px,transparent 2px);background-size:33.33vw 33.33vw;color:var(--ink);font-family:var(--f)}
+.wrap{max-width:1040px;margin:0 auto;padding:48px max(20px,env(safe-area-inset-right)) 40px max(20px,env(safe-area-inset-left));display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.icon{width:88px;height:88px;border-radius:22px;box-shadow:0 10px 24px rgba(0,0,0,.25)}
+.eb{font-size:.8rem;font-weight:700;letter-spacing:.14em;color:var(--amber);margin:28px 0 10px}
+h1{font-size:clamp(2.4rem,6vw,4rem);line-height:1.02;letter-spacing:-.03em;margin:0 0 16px;font-weight:800}
+p{color:var(--soft);font-size:1.1rem;line-height:1.6;max-width:44ch;margin:0 0 24px}
+.stores{display:flex;flex-wrap:wrap;gap:10px}
+.store{display:inline-flex;flex-direction:column;justify-content:center;height:52px;padding:0 18px;border-radius:12px;background:#0B1116;color:#fff;text-decoration:none;font-size:.7rem;line-height:1.2}
+.store b{font-size:1.05rem}
+.store.soon{opacity:.6;pointer-events:none}
+.shot{width:100%;max-width:340px;justify-self:center;border-radius:28px;box-shadow:0 30px 60px rgba(0,0,0,.35)}
+footer{max-width:1040px;margin:0 auto;padding:0 20px 32px;display:flex;gap:20px;flex-wrap:wrap;font-size:.9rem;color:var(--soft)}
+footer a{color:var(--ink)}
+@media (max-width:760px){.wrap{grid-template-columns:1fr;padding-top:32px}.shot{max-width:280px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div>
+    <img class="icon" src="icon.png" alt="Dokuz Sudoku ikonu">
+    <div class="eb">ANDROID · IPHONE</div>
+    <h1>Dokuz Sudoku</h1>
+    <p>6 zorluk seviyesi, her gün yeni bir bulmaca, not modu ve ipucu. Dikkatini dağıtacak hiçbir şey olmadan, sadece sen ve rakamlar.</p>
+    <div class="stores">
+      <!-- Yayınlanınca: class="store soon" yerine class="store" yap ve href'e mağaza bağlantısını yaz -->
+      <a class="store soon" href="#"><span>Yakında</span><b>Google Play</b></a>
+      <a class="store soon" href="#"><span>Yakında</span><b>App Store</b></a>
+    </div>
+  </div>
+  <img class="shot" src="shot.jpg" alt="Dokuz Sudoku oyun ekranı">
+</main>
+<footer>
+  <span>© 2026 Dokuz Sudoku</span>
+  <a href="privacy.html">Gizlilik Politikası</a>
+  <a href="privacy.html#en">Privacy Policy</a>
+</footer>
+</body>
+</html>

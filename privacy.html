@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Dokuz Sudoku Gizlilik</title>
+<style>
+/* Layout: tek sütun yasal metin, 64ch genişlik, üstte marka ve dil seçici */
+:root{
+  --bg:#E9EEF2; --paper:#FFFFFF; --ink:#1B2430; --muted:#5F6B78; --line:#D3DBE2; --accent:#0E7C66; --accent-soft:#D3ECE5;
+  --f-display:"Inter Display","Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-body:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#10151B;--paper:#18202A;--ink:#E5EAF0;--muted:#97A2AE;--line:#2B3644;--accent:#3CC9A6;--accent-soft:#163A32;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#10151B;--paper:#18202A;--ink:#E5EAF0;--muted:#97A2AE;--line:#2B3644;--accent:#3CC9A6;--accent-soft:#163A32;color-scheme:dark}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.65;margin:0}
+.wrap{max-width:64ch;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 56px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:28px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:800;font-size:1.15rem;letter-spacing:-.02em}
+.brand i{display:inline-grid;grid-template-columns:repeat(3,6px);gap:2px}
+.brand i b{width:6px;height:6px;border-radius:1px;background:var(--line)}
+.brand i b:nth-child(1),.brand i b:nth-child(5),.brand i b:nth-child(9){background:var(--accent)}
+.seg{display:flex;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:3px}
+.seg button{border:0;background:none;color:var(--muted);font:inherit;font-size:.85rem;padding:5px 12px;border-radius:7px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent-soft);color:var(--ink);font-weight:600}
+.seg button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h1{font-family:var(--f-display);font-weight:800;font-size:2.1rem;line-height:1.1;letter-spacing:-.025em;margin:0 0 8px;text-wrap:balance}
+.meta{color:var(--muted);font-size:.88rem;margin:0 0 28px}
+.summary{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:32px}
+.summary strong{display:block;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:6px}
+.summary p{margin:0}
+h2{font-family:var(--f-display);font-weight:700;font-size:1.15rem;letter-spacing:-.01em;margin:32px 0 8px;text-wrap:balance}
+p,li{color:var(--ink)}
+ul{padding-left:1.2em;margin:8px 0}
+li{margin:4px 0}
+a{color:var(--accent);text-underline-offset:2px}
+.mail{font-weight:600;user-select:all}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <div class="top">
+    <div class="brand"><i><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></i>Dokuz Sudoku</div>
+    <div class="seg" role="group" aria-label="Dil / Language">
+      <button id="btn-tr" aria-pressed="true">TR</button>
+      <button id="btn-en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+
+  <article id="tr" lang="tr">
+    <h1>Gizlilik Politikası</h1>
+    <p class="meta">Yürürlük tarihi: 25 Ekim 2026</p>
+    <div class="summary"><strong>Kısaca</strong><p>Dokuz Sudoku hesap istemez ve senden kişisel bilgi toplamaz. Oyun ilerlemen yalnızca kendi cihazında saklanır. Uygulama ücretsiz kalsın diye Google AdMob reklamları gösterir; AdMob reklam sunmak için bazı cihaz verilerini işler.</p></div>
+
+    <h2>1. Biz kimiz</h2>
+    <p>Dokuz Sudoku, bağımsız geliştirici Cihan tarafından yayınlanan bir bulmaca oyunudur. Bu politika uygulamanın Android ve iOS sürümleri için geçerlidir.</p>
+
+    <h2>2. Uygulamanın kendisinin topladığı veriler</h2>
+    <p>Uygulama ad, e-posta, telefon numarası, rehber, fotoğraf veya kesin konum gibi kişisel bilgiler istemez ve toplamaz. Hesap oluşturma yoktur.</p>
+    <p>Devam eden oyunun, rekor sürelerin, istatistiklerin ve ayarların (dil, tema) yalnızca cihazının yerel depolamasında tutulur. Bu bilgiler bize ya da başka bir sunucuya gönderilmez. Uygulamayı silersen bu veriler de silinir.</p>
+
+    <h2>3. Reklamlar ve Google AdMob</h2>
+    <p>Uygulama, Google LLC'nin reklam hizmeti AdMob aracılığıyla banner, geçiş ve ödüllü reklamlar gösterir. AdMob reklam sunmak, ölçmek ve dolandırıcılığı önlemek için şu verileri toplayıp işleyebilir:</p>
+    <ul>
+      <li>Reklam kimliği (Android Advertising ID veya iOS IDFA, izin verdiysen)</li>
+      <li>IP adresi ve buna dayalı yaklaşık konum</li>
+      <li>Cihaz modeli, işletim sistemi sürümü, dil ve uygulama sürümü gibi teknik bilgiler</li>
+      <li>Reklamlarla etkileşimler (görüntüleme, tıklama)</li>
+    </ul>
+    <p>Bu verilerin Google tarafından nasıl kullanıldığını <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">Google'ın iş ortağı sitelerinde veri kullanımı</a> ve <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Gizlilik Politikası</a> sayfalarında okuyabilirsin.</p>
+
+    <h2>4. Onay ve tercihlerin</h2>
+    <ul>
+      <li><strong>Avrupa Ekonomik Alanı, Birleşik Krallık ve İsviçre:</strong> Uygulama ilk açılışta Google'ın onay formunu gösterir. Kişiselleştirilmiş reklamlara izin vermeyebilirsin; bu durumda kişiselleştirilmemiş reklamlar gösterilir.</li>
+      <li><strong>iOS:</strong> Uygulama, reklam takibi için Apple'ın App Tracking Transparency iznini sorar. Kararını Ayarlar › Gizlilik ve Güvenlik › Takip bölümünden istediğin zaman değiştirebilirsin.</li>
+      <li><strong>Android:</strong> Reklam kimliğini Ayarlar › Google › Reklamlar (veya Ayarlar › Gizlilik › Reklamlar) bölümünden sıfırlayabilir ya da silebilirsin.</li>
+    </ul>
+
+    <h2>5. Çocuklar</h2>
+    <p>Uygulama 13 yaşın altındaki çocuklara yönelik değildir ve bu yaştaki çocuklardan bilerek kişisel veri toplamaz. Bir çocuğun verisinin işlendiğini düşünüyorsan aşağıdaki adresten bize yaz.</p>
+
+    <h2>6. Hakların (KVKK ve GDPR)</h2>
+    <p>Uygulamanın kendisi seni tanımlayan bir veri tutmadığı için silinecek veya düzeltilecek bir kayıt bulunmaz. Yerel oyun verilerini uygulamayı silerek kaldırabilirsin. AdMob'un işlediği veriler için haklarını Google'a karşı kullanabilirsin. Sorularını ve başvurularını aşağıdaki adrese iletebilirsin.</p>
+
+    <h2>7. Güvenlik ve saklama</h2>
+    <p>Oyun verileri yalnızca cihazında kalır. AdMob verilerinin saklama süreleri Google'ın politikalarına tabidir.</p>
+
+    <h2>8. Değişiklikler</h2>
+    <p>Bu politikayı güncellersek yeni sürümü bu sayfada yayınlar ve yürürlük tarihini değiştiririz.</p>
+
+    <h2>9. İletişim</h2>
+    <p>E-posta: <span class="mail">cihansoylular@gmail.com</span></p>
+  </article>
+
+  <article id="en" lang="en" hidden>
+    <h1>Privacy Policy</h1>
+    <p class="meta">Effective date: October 25, 2026</p>
+    <div class="summary"><strong>In short</strong><p>Dokuz Sudoku needs no account and does not collect personal information from you. Your game progress stays on your device. To keep the app free, it shows Google AdMob ads, and AdMob processes some device data to serve them.</p></div>
+
+    <h2>1. Who we are</h2>
+    <p>Dokuz Sudoku is a puzzle game published by independent developer Cihan. This policy covers the Android and iOS versions of the app.</p>
+
+    <h2>2. Data the app itself collects</h2>
+    <p>The app does not ask for or collect personal information such as your name, email, phone number, contacts, photos or precise location. There are no accounts.</p>
+    <p>Your current game, best times, stats and settings (language, theme) are kept only in your device's local storage. They are not sent to us or to any server. Deleting the app deletes this data.</p>
+
+    <h2>3. Ads and Google AdMob</h2>
+    <p>The app shows banner, interstitial and rewarded ads through AdMob, an advertising service of Google LLC. To serve and measure ads and prevent fraud, AdMob may collect and process:</p>
+    <ul>
+      <li>Advertising ID (Android Advertising ID, or iOS IDFA if you allow it)</li>
+      <li>IP address and approximate location derived from it</li>
+      <li>Technical details such as device model, OS version, language and app version</li>
+      <li>Ad interactions (views, taps)</li>
+    </ul>
+    <p>Read how Google uses this data in <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">How Google uses information from sites or apps that use its services</a> and the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</p>
+
+    <h2>4. Consent and your choices</h2>
+    <ul>
+      <li><strong>EEA, UK and Switzerland:</strong> The app shows Google's consent form on first launch. You can decline personalized ads, and you will then see non-personalized ads.</li>
+      <li><strong>iOS:</strong> The app asks for Apple's App Tracking Transparency permission. You can change your choice any time in Settings › Privacy &amp; Security › Tracking.</li>
+      <li><strong>Android:</strong> You can reset or delete your advertising ID in Settings › Google › Ads (or Settings › Privacy › Ads).</li>
+    </ul>
+
+    <h2>5. Children</h2>
+    <p>The app is not directed at children under 13 and does not knowingly collect personal data from them. If you believe a child's data has been processed, contact us at the address below.</p>
+
+    <h2>6. Your rights (GDPR and KVKK)</h2>
+    <p>Because the app itself keeps no data that identifies you, there are no records for us to delete or correct. You can remove local game data by deleting the app. You can exercise your rights over data processed by AdMob with Google. Send questions and requests to the address below.</p>
+
+    <h2>7. Security and retention</h2>
+    <p>Game data stays on your device. Retention of AdMob data is governed by Google's policies.</p>
+
+    <h2>8. Changes</h2>
+    <p>If we update this policy, we will post the new version on this page and change the effective date.</p>
+
+    <h2>9. Contact</h2>
+    <p>Email: <span class="mail">cihansoylular@gmail.com</span></p>
+  </article>
+
+  <footer>© 2026 Dokuz Sudoku</footer>
+</div>
+
+<script>
+(() => {
+  const set = (l) => {
+    document.getElementById('tr').hidden = l !== 'tr';
+    document.getElementById('en').hidden = l !== 'en';
+    document.getElementById('btn-tr').setAttribute('aria-pressed', l === 'tr');
+    document.getElementById('btn-en').setAttribute('aria-pressed', l === 'en');
+    document.documentElement.lang = l;
+  };
+  let l = location.hash === '#en' ? 'en' : location.hash === '#tr' ? 'tr' : ((navigator.language || 'tr').startsWith('tr') ? 'tr' : 'en');
+  set(l);
+  document.getElementById('btn-tr').onclick = () => set('tr');
+  document.getElementById('btn-en').onclick = () => set('en');
+})();
+</script>
+
+</body>
+</html>
