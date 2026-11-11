@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nonet Sudoku Veri Silme</title>
+<style>
+/* Layout: tek sütun yasal metin, 64ch genişlik, üstte marka ve dil seçici */
+:root{
+  --bg:#E9EEF2; --paper:#FFFFFF; --ink:#1B2430; --muted:#5F6B78; --line:#D3DBE2; --accent:#0E7C66; --accent-soft:#D3ECE5;
+  --f-display:"Inter Display","Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-body:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#10151B;--paper:#18202A;--ink:#E5EAF0;--muted:#97A2AE;--line:#2B3644;--accent:#3CC9A6;--accent-soft:#163A32;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#10151B;--paper:#18202A;--ink:#E5EAF0;--muted:#97A2AE;--line:#2B3644;--accent:#3CC9A6;--accent-soft:#163A32;color-scheme:dark}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.65;margin:0}
+.wrap{max-width:64ch;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 56px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:28px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:800;font-size:1.15rem;letter-spacing:-.02em}
+.brand i{display:inline-grid;grid-template-columns:repeat(3,6px);gap:2px}
+.brand i b{width:6px;height:6px;border-radius:1px;background:var(--line)}
+.brand i b:nth-child(1),.brand i b:nth-child(5),.brand i b:nth-child(9){background:var(--accent)}
+.seg{display:flex;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:3px}
+.seg button{border:0;background:none;color:var(--muted);font:inherit;font-size:.85rem;padding:5px 12px;border-radius:7px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent-soft);color:var(--ink);font-weight:600}
+.seg button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h1{font-family:var(--f-display);font-weight:800;font-size:2.1rem;line-height:1.1;letter-spacing:-.025em;margin:0 0 8px;text-wrap:balance}
+.meta{color:var(--muted);font-size:.88rem;margin:0 0 28px}
+.summary{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:32px}
+.summary strong{display:block;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:6px}
+.summary p{margin:0}
+h2{font-family:var(--f-display);font-weight:700;font-size:1.15rem;letter-spacing:-.01em;margin:32px 0 8px;text-wrap:balance}
+p,li{color:var(--ink)}
+ul,ol{padding-left:1.2em;margin:8px 0}
+li{margin:4px 0}
+a{color:var(--accent);text-underline-offset:2px}
+.mail{font-weight:600;user-select:all}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="brand"><i><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></i>Nonet Sudoku</div>
+    <div class="seg" role="group" aria-label="Dil / Language">
+      <button id="btn-tr" aria-pressed="true">TR</button>
+      <button id="btn-en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+
+  <article id="tr" lang="tr">
+    <h1>Verilerini sil</h1>
+    <p class="meta">Nonet Sudoku · Geliştirici: Cihan</p>
+    <div class="summary"><strong>Kısaca</strong><p>Nonet Sudoku'da hesap yoktur. Sunucuda tutulan tek veri, sıralamalarda görünmeyi açık bıraktığında gönderilen sıralama kaydındır. Bunu uygulamadan hemen silebilir ya da bize yazarak tamamen sildirebilirsin.</p></div>
+
+    <h2>1. Uygulamadan sil (hemen)</h2>
+    <ol>
+      <li>Nonet Sudoku'yu aç ve sağ üstteki <strong>Ayarlar</strong> (dişli) simgesine dokun.</li>
+      <li>En üstteki profil satırında <strong>Düzenle</strong>'ye dokun.</li>
+      <li><strong>Sıralamada görün</strong> seçeneğini <strong>Kapalı</strong> yap ve <strong>Kaydet</strong>'e dokun.</li>
+    </ol>
+    <p>Level sıralamasındaki kaydın (takma ad, avatar, ülke, XP, level) hemen silinir ve yeni sonuçların gönderilmez.</p>
+
+    <h2>2. E-postayla tüm kayıtlarını sildir</h2>
+    <p>Geçmiş günün bulmacası sonuçların dahil tüm kayıtlarının silinmesi için <span class="mail">cihansoylular@gmail.com</span> adresine "Nonet Sudoku veri silme" konulu bir e-posta gönder. E-postaya sıralamada kullandığın takma adı yaz. Kayıtlarını 30 gün içinde sileriz ve sana haber veririz.</p>
+
+    <h2>3. Silinen veriler</h2>
+    <ul>
+      <li>Takma ad, avatar ve ülke</li>
+      <li>Toplam XP ve level</li>
+      <li>Günün bulmacası sonuçları (süre, hata ve ipucu sayısı)</li>
+      <li>Bu kayıtları cihazına bağlayan anonim kullanıcı kimliği</li>
+    </ul>
+
+    <h2>4. Saklanan veriler</h2>
+    <p>Silme sonrasında sunucularımızda senin hakkında bir kayıt kalmaz. Cihazındaki oyun ilerlemesi (devam eden oyun, rekorlar, ayarlar) yalnızca telefonunda durur; uygulamayı kaldırdığında silinir. Reklamlar için Google AdMob'un işlediği veriler Google'ın kendi politikalarına tabidir; bunları <a href="https://myadcenter.google.com" target="_blank" rel="noopener">Google Reklam Merkezim</a> üzerinden yönetebilirsin.</p>
+
+    <p><a href="privacy.html#tr">Gizlilik Politikası</a></p>
+  </article>
+
+  <article id="en" lang="en" hidden>
+    <h1>Delete your data</h1>
+    <p class="meta">Nonet Sudoku · Developer: Cihan</p>
+    <div class="summary"><strong>In short</strong><p>Nonet Sudoku has no accounts. The only data kept on a server is your leaderboard entry, sent while "Show me on leaderboards" is on. You can delete it right away in the app, or email us to have everything removed.</p></div>
+
+    <h2>1. Delete in the app (instant)</h2>
+    <ol>
+      <li>Open Nonet Sudoku and tap the <strong>Settings</strong> (gear) icon at the top right.</li>
+      <li>Tap <strong>Edit</strong> on the profile row at the top.</li>
+      <li>Set <strong>Show me on leaderboards</strong> to <strong>Off</strong> and tap <strong>Save</strong>.</li>
+    </ol>
+    <p>Your level leaderboard entry (nickname, avatar, country, XP, level) is deleted immediately and new results are no longer sent.</p>
+
+    <h2>2. Delete everything by email</h2>
+    <p>To delete all your entries, including past daily puzzle results, email <span class="mail">cihansoylular@gmail.com</span> with the subject "Nonet Sudoku data deletion" and include the nickname you used. We delete your records within 30 days and let you know.</p>
+
+    <h2>3. Data that is deleted</h2>
+    <ul>
+      <li>Nickname, avatar and country</li>
+      <li>Total XP and level</li>
+      <li>Daily puzzle results (time, mistakes and hints used)</li>
+      <li>The anonymous user ID that links these entries to your device</li>
+    </ul>
+
+    <h2>4. Data that is kept</h2>
+    <p>After deletion we keep no records about you on our servers. Your game progress on the device (current game, best times, settings) stays only on your phone and is removed when you uninstall the app. Data processed by Google AdMob for ads is governed by Google's own policies; you can manage it in <a href="https://myadcenter.google.com" target="_blank" rel="noopener">Google My Ad Center</a>.</p>
+
+    <p><a href="privacy.html#en">Privacy Policy</a></p>
+  </article>
+
+  <footer>© 2026 Nonet Sudoku</footer>
+</div>
+<script>
+(() => {
+  const set = (l) => {
+    document.getElementById('tr').hidden = l !== 'tr';
+    document.getElementById('en').hidden = l !== 'en';
+    document.getElementById('btn-tr').setAttribute('aria-pressed', l === 'tr');
+    document.getElementById('btn-en').setAttribute('aria-pressed', l === 'en');
+    document.documentElement.lang = l;
+  };
+  let l = location.hash === '#en' ? 'en' : location.hash === '#tr' ? 'tr' : ((navigator.language || 'tr').startsWith('tr') ? 'tr' : 'en');
+  set(l);
+  document.getElementById('btn-tr').onclick = () => set('tr');
+  document.getElementById('btn-en').onclick = () => set('en');
+})();
+</script>
+
+</body>
+</html>
